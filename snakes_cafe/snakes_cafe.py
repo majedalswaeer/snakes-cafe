@@ -8,40 +8,43 @@ menu=[
     {
         "name":"appetizers",
         "items": [
-            "Wings",
-            "Cookies",
-            "Spring Rolls",
+            "wings",
+            "cookies",
+            "spring Rolls",
         ],
     },
     {
-        "name":"Entrees",
+        "name":"entrees",
         "items": [
-            "Salmon",
-            "Steak",
-            "Meat Tornado",
-            "A Literal Garden"
+            "salmon",
+            "steak",
+            "meat Tornado",
+            "a Literal Garden"
         ],
 
     },
     {
-        "name":"Desserts",
+        "name":"desserts",
         "items": [
             "Ice Cream",
-            "Cake",
-            "Pie",
+            "cake",
+            "pie",
         ],
 
     },
     {
-        "name":"Drinks",
+        "name":"drinks",
         "items": [
-            "Coffee",
-            "Tea",
-            "Unicorn Tears",
+            "coffee",
+            "tea",
+            "unicorn Tears",
         ],
     },
 ]
-print("""
+
+
+def main_func():
+    print("""
 **************************************
 **    Welcome to the Snakes Cafe!   **
 **    Please see our menu below.    **
@@ -65,7 +68,8 @@ print("""
 
 lists = [ sub['items'] for sub in menu ]
 final_orders = []
-element = str(input('>'))
+element = input('>').lower()
+print('edee',element)
 while element !='quit':
     res1 = any(element in sublist for sublist in lists)
     if res1:
@@ -74,7 +78,14 @@ while element !='quit':
         # print(my_dict.get('Tea'))
         value=my_dict.get(element)
         print(f'** {value} order of {element} have been added to your meal **')
-        element = str(input(''))
+        element = input('>').lower()
     elif res1==False:
         print(f'Unfortunatly!, We dont have {element} :(')
-        break
+        print('is there anything else?, if not please type quit')
+        element = input('>').lower()
+        
+
+
+if __name__ == "__main__":
+    main_func()
+    
